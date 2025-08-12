@@ -41,13 +41,14 @@ function App() {
   const { user } = useSelector((state) => state.profile);
   
   
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      const token = JSON.parse(localStorage.getItem("token"));
-      dispatch(getUserDetails(token, navigate));
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+ useEffect(() => {
+  const token = localStorage.getItem("token"); // ✅ no JSON.parse
+  if (token) {
+    dispatch(getUserDetails(token, navigate));
+  }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
+
 
   return (
    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
