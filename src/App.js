@@ -41,7 +41,11 @@ function App() {
   const { user } = useSelector((state) => state.profile);
   
   
+<<<<<<< HEAD
  useEffect(() => {
+=======
+  useEffect(() => {
+>>>>>>> 9b39b4c (Fix: removed JSON.parse for token and installed axios)
   const token = localStorage.getItem("token"); // ✅ no JSON.parse
   if (token) {
     dispatch(getUserDetails(token, navigate));
